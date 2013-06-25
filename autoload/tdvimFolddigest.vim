@@ -51,8 +51,8 @@ endfunction
 
 " MarkMasterWindow {{{
 " Mark current buffer as the buffer controlled by folddigest
-" The curren window number will be saved in the Folddigest window as 
-" a window variable so folddigest could know from what window create 
+" The curren window number will be saved in the Folddigest window as
+" a window variable so folddigest could know from what window create
 " the folddigest
 " The window variable is called folddigested
 function! tdvimFolddigest#MarkMasterWindow()
@@ -179,13 +179,13 @@ function! tdvimFolddigest#MakeDigestBuffer()
         " Place FoldDigest window
         let size = s:digest_size > 0 ? s:digest_size : ""
         if g:FoldDigest_Pos == 'right'
-            silent execute size." vertical rightbelow  split ++enc= ".escape(name, ' ')
+            silent execute " vertical rightbelow ".size." split ++enc= ".escape(name, ' ')
         elseif g:FoldDigest_Pos == 'left'
-            silent execute size." vertical leftabove  split ++enc= ".escape(name, ' ')
+            silent execute " vertical leftabove ".size." split ++enc= ".escape(name, ' ')
         elseif g:FoldDigest_Pos == 'bottom'
-            silent execute size."  rightbelow  split ++enc= ".escape(name, ' ')
+            silent execute "  rightbelow ".size." split ++enc= ".escape(name, ' ')
         elseif g:FoldDigest_Pos == 'top'
-            silent execute size." leftabove  split ++enc= ".escape(name, ' ')
+            silent execute " leftabove ".size." split ++enc= ".escape(name, ' ')
         else
             echoerr "Folddigest window position not supported: " . g:FoldDigest_Pos
             return
@@ -294,9 +294,9 @@ endfunction
 " FoldDigest {{{
 " Create/refresh folddigest window contents.
 " this is the main function called to open FoldDigest
-" At the end the focus will return to the window from which 
+" At the end the focus will return to the window from which
 " folddigest is created
-function! tdvimFolddigest#FoldDigest() 
+function! tdvimFolddigest#FoldDigest()
     " Save current buffer name
     let bufname = bufname('%')
 
